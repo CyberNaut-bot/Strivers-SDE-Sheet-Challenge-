@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.* ;
+
+public class Solution {
+    public static void setZeros(int matrix[][]) {
+        // Write your code here.
+  
+        int row0 = matrix.length;
+        int col0 = matrix[0].length;
+        int[] dummyRow = new int[row0];
+        int[] dummyCol = new int[col0];
+        Arrays.fill(dummyRow, -1);
+        Arrays.fill(dummyCol, -1);
+        for(int i=0;i<row0;i++){
+            for(int j=0;j<col0;j++){
+                if(matrix[i][j]==0){
+                    dummyRow[i] = 0;
+                    dummyCol[j] = 0;
+                }
+            }
+        }
+        for(int i=0;i<row0;i++){
+            for(int j=0;j<col0;j++){
+                if(dummyRow[i] == 0 || dummyCol[j] == 0 ){
+                    matrix[i][j]=0;
+                }
+            }
+        }
+    
+
+    }
+
+}
