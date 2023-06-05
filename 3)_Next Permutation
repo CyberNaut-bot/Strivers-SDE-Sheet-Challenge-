@@ -1,0 +1,44 @@
+import java.util.* ;
+import java.io.*; 
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Solution 
+{
+	public static ArrayList<Integer> nextPermutation(ArrayList<Integer> permutation) 
+	{
+		// Write your code here.
+		int index=-1;
+		int n=permutation.size();
+		//if break point exists
+		for(int i=n-2;i>=0;i--)
+		{
+			if(permutation.get(i)<permutation.get(i+1))
+			{ 
+				//i is the break point which is copied to i
+				index=i;
+				break;
+			}
+
+		}
+		// If break point does not exist:
+        if (index == -1) {
+            // reverse the whole array:
+            Collections.reverse(permutation);
+            return permutation;
+        }
+		 for (int i = n - 1; i >= index; i--) {
+            if (permutation.get(i) > permutation.get(index)) {
+                int temp = permutation.get(i);
+                permutation.set(i, permutation.get(index));
+                permutation.set(index, temp);
+                break;
+            }
+        }
+		 List<Integer> sublist = permutation.subList(index + 1, n);
+        Collections.reverse(sublist);
+		
+		return permutation;
+
+	}
+}
