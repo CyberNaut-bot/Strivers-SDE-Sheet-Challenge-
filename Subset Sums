@@ -1,0 +1,23 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    private static ArrayList<Integer> Sumsubset;
+    private static void func(int ind,int sum,int[] num)
+    {
+        if(ind==num.length)
+        {
+            Sumsubset.add(sum);
+            return;
+        }
+        func(ind+1,sum+num[ind],num);
+        func(ind+1,sum,num);
+    }
+    public static ArrayList<Integer> subsetSum(int num[]) {
+        // Write your code here..
+        Sumsubset = new ArrayList<>();
+        func(0,0,num);
+        Collections.sort(Sumsubset);
+        return Sumsubset;
+    }
+
+}
