@@ -1,0 +1,17 @@
+public class Solution 
+{
+	public static String reverseString(String str) 
+	{
+		//Write your code here
+		String result[]=str.trim().split("\\s+");
+		String reverse="";
+		for(int i=result.length-1;i>=0;i--)
+		{
+			reverse = reverse + result[i] + " ";
+		}
+		
+		//System.out.println(reverse);
+		return reverse.trim();
+}
+	}
+	
